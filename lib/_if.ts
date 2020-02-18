@@ -13,7 +13,7 @@ interface If<T> {
     then: (fn: Fn<T>) => Then<T>;
 }
 
-export const _if = <T extends any>(condition: boolean): If<T> => {
+export const _if = <T extends any>(condition: any): If<T> => {
     let returnValue: T | null;
 
     const result = (): T | null => returnValue || _null();
