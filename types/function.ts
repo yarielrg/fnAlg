@@ -1,0 +1,1 @@
+export type Fn<T> = (...rest: any[]) => T;

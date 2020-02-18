@@ -1,4 +1,5 @@
-export type Fn<T> = (...rest: any) => T;
+import { Fn } from '../types';
+import { _null } from '../utils';
 
 interface Result<T> {
     result: Fn<T>;
@@ -11,8 +12,6 @@ interface Then<T> extends Result<T> {
 interface If<T> {
     then: (fn: Fn<T>) => Then<T>;
 }
-
-export const _null = (): null => null;
 
 export const _if = <T extends any>(condition: boolean): If<T> => {
     let returnValue: T | null;
