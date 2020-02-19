@@ -1,0 +1,1 @@
+export const _this = <T extends any>(ctx: any): T => ctx;

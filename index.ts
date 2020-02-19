@@ -1,2 +1,5 @@
-export * from './lib/_if';
-export * from './lib/_bind';
+export * from './lib';
+
+export * from './types';
+
+export * from './utils';
