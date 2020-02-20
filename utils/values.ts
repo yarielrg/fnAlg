@@ -1,6 +1,6 @@
 import { Fn } from '../types';
 
-export const _orNull: Fn<null> = (val?: any): null => val || null;
+export const _orNull: Fn = (val?: any): any => val || null;
 
 export const _arr = <T = any>(arr?: any): T[] => Array.isArray(arr) && arr || [];
 

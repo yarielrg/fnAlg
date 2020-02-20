@@ -1,1 +1,1 @@
-export type Fn<T> = (...rest: any[]) => T;
+export type Fn<T = any> = (...rest: any[]) => T;
