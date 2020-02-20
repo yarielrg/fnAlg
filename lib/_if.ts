@@ -1,5 +1,5 @@
 import { Fn } from '../types';
-import { _null } from '../utils';
+import { _orNull } from '../utils';
 
 interface Result<T> {
     result: Fn<T>;
@@ -13,10 +13,10 @@ interface If<T> {
     then: (fn: Fn<T>) => Then<T>;
 }
 
-export const _if = <T extends any>(condition: any): If<T> => {
+export const _if = <T = any>(condition: any): If<T> => {
     let returnValue: T | null;
 
-    const result = (): T | null => returnValue || _null();
+    const result = (): T | null => returnValue;
 
     const or = (falseExp: Fn<T>): Result<T> => {
         returnValue = (!!condition && result || falseExp)();
@@ -24,7 +24,7 @@ export const _if = <T extends any>(condition: any): If<T> => {
     };
 
     const then = (trueExp: Fn<T>): Then<T> => {
-        returnValue = (!!condition && trueExp || _null)();
+        returnValue = (!!condition && trueExp || _orNull)();
         return { or, result };
     };
 
