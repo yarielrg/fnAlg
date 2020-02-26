@@ -42,11 +42,11 @@ interface Switch<T> {
 export const _switch = <T = any>(_default?: Fn<T>): Switch<T> => {
 	const options = new Map<any, Fn<T>>();
 	
-	const addCase = (key: any, fn: Fn<T>) => {
+	const addCase = (key: any, fn: Fn<T>): Switch<T> => {
 		options.set(key, fn);
 		return { addCase, result };
 	};
-	const result = (key: any) => (options.get(key) || _default || _orNull)();
+	const result = (key: any): T => (options.get(key) || _default || _orNull)();
 	
 	return { addCase, result };
 };
